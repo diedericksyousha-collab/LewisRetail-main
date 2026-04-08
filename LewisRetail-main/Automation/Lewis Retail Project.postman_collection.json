@@ -1,0 +1,3654 @@
+{
+  "info": {
+    "_postman_id": "489badcd-6c99-464b-9b35-c705ac1b1c5c",
+    "name": "Lewis Retail Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53068238",
+    "_collection_link": "https://go.postman.co/collection/53068238-489badcd-6c99-464b-9b35-c705ac1b1c5c?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Stock and Inventory",
+      "item": [
+        {
+          "name": "Inventory Data Exists",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Inventory data exists\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"array\");\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/inventory",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "inventory"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Negative stock pID3",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Inventory data exists\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"Object\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Stock should not be negative\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data.QuantityOnHand).to.be.at.least(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/inventory/3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "inventory",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Negative stock pID9",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Inventory data exists\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"Object\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Stock should not be negative\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data.QuantityOnHand).to.be.at.least(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/inventory/9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "inventory",
+                "9"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Negative Inventory",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Inventory data exists\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"array\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Stock should not be negative\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data.QuantityOnHand).to.be.at.least(0);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"All InventoryID should be unique\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData).to.have.property(\"data\");\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"array\");\r",
+                  "\r",
+                  "    const ids = jsonData.data\r",
+                  "        .map(item => item && item.InventoryID)\r",
+                  "        .filter(id => id !== undefined && id !== null);\r",
+                  "\r",
+                  "    const uniqueIds = new Set(ids);\r",
+                  "    pm.expect(uniqueIds.size, \"Duplicate InventoryID found\").to.equal(ids.length);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"All ProductID should be unique\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData).to.have.property(\"data\");\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"array\");\r",
+                  "\r",
+                  "    const ids = jsonData.data\r",
+                  "        .map(item => item && item.ProductID)\r",
+                  "        .filter(id => id !== undefined && id !== null);\r",
+                  "\r",
+                  "    const uniqueIds = new Set(ids);\r",
+                  "    pm.expect(uniqueIds.size, \"Duplicate ProductID found\").to.equal(ids.length);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"All StoreID should be valid\", function() {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData).to.have.property(\"data\");\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"array\");\r",
+                  "\r",
+                  "    const ids = jsonData.data\r",
+                  "        .map(item => item && item.StoreID)\r",
+                  "        .filter(id => id !== undefined && id !== null);\r",
+                  "\r",
+                  "    const validIds = new Set([1,2,3,4,5,6,7,8]);\r",
+                  "\r",
+                  "    ids.forEach((id, index) => {\r",
+                  "        pm.expect(validIds.has(id), `Invalid StoreID at index ${index}: ${id}`).to.be.true;\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"QuantityReserved should NOT be negative\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData).to.have.property(\"data\");\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"array\");\r",
+                  "\r",
+                  "    jsonData.data.forEach((item, index) => {\r",
+                  "        pm.expect(item, `Item at index ${index} should have QuantityReserved`).to.have.property(\"QuantityReserved\");\r",
+                  "        const value = item.QuantityReserved;\r",
+                  "        pm.expect(value, `QuantityReserved at index ${index} is negative`).to.be.a(\"number\");\r",
+                  "        pm.expect(value, `QuantityReserved at index ${index} should not be negative`).to.be.at.least(0);\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"SKU must be unique\", function(){\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData).to.have.property(\"data\");\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"array\");\r",
+                  "\r",
+                  "    const skus = jsonData.data\r",
+                  "    .map(item => item && item.SKU)\r",
+                  "    .filter(sku => sku !== undefined && sku !== null);\r",
+                  "\r",
+                  "    const uniqueSkus = new Set(skus);\r",
+                  "    pm.expect(uniqueSkus.size, \"Duplicate SKU found\").to.equal(skus.length);\r",
+                  "    \r",
+                  "})\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/inventory",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "inventory"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Non Existent Product",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Inventory data exists\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"Object\");\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/inventory/17",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "inventory",
+                "17"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Stock Update",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Inventory data exists\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"Object\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Stock should not be negative\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data.QuantityOnHand).to.be.at.least(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzM4MjYzNzEsImV4cCI6MTc3MzkxMjc3MX0.1Jpl46-hAWjbJMLw8dZ4f0gs3Zl4laum25C62M47UWg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"InventoryID\": 1,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantityChange\": 50,\r\n  \"reason\": \"Recieved stock from supplier\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Authorization",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "   {\r\n     \"email\": \"kabo@lewisretail.co.za\",\r\n     \"password\": \"Password123\"\r\n   }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Multiple Product Stock Update",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzQzNDU3NjEsImV4cCI6MTc3NDQzMjE2MX0._xKwD-GA9UmfEtRXVnGIx4aENeppzqRG0o5g5XmZRQc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n  {\r\n    \"productId\": 2,\r\n    \"storeId\": 2,\r\n    \"quantityChange\": 36,\r\n    \"reason\": \"Received stock from supplier\"\r\n  },\r\n  {\r\n    \"productId\": 4,\r\n    \"storeId\": 4,\r\n    \"quantityChange\": 60,\r\n    \"reason\": \"Received stock from supplier\"\r\n  },\r\n  {\r\n    \"productId\": 7,\r\n    \"storeId\": 7,\r\n    \"quantityChange\": 21,\r\n    \"reason\": \"Received stock from supplier\"\r\n  }\r\n]\r\n\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Stock Without StockQuantity",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzQ0MjE1NzIsImV4cCI6MTc3NDUwNzk3Mn0.KKqgIy8w9iS1C1BCEoXOh5XnZqeGUMYad2k3O_d22DY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"InventoryID\": 1,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"reason\": \"Recieved stock from supplier\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Low Stock",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzQyNDE0NDcsImV4cCI6MTc3NDMyNzg0N30.p46HF94_vXg4jy7gpL_OaQMd93dHxy1vtbwEtxqT40o",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/inventory/low-stock",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "inventory",
+                "low-stock"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Stock For Specific Product",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Inventory data exists\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"Object\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Stock should not be negative\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data.QuantityOnHand).to.be.at.least(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/inventory/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "inventory",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Decrease Product Stock",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Inventory data exists\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"Object\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Stock should not be negative\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data.QuantityOnHand).to.be.at.least(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"InventoryID\": 7,\r\n  \"productId\": 7,\r\n  \"storeId\": 4,\r\n  \"quantityChange\": -20,\r\n  \"reason\": \"Sold\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update stock for non-existent ProductID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Inventory data exists\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"Object\");\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzQyNDkxNjEsImV4cCI6MTc3NDMzNTU2MX0.UwGdu8j6obD7dsJ-V9v8bA4Oi00wYoyZELVAPEa6rBQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "  {\r\n    \"productId\": 17,\r\n    \"quantityChange\": 200,\r\n    \"reason\": \"Received stock from supplier\"\r\n  }\r\n\r\n\r\n"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cashier Access Admin Privledges",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "   {\r\n     \"email\": \"cashier26@lewisretail.co.za\",\r\n     \"password\": \"Password123\"\r\n   }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cashier Stock Update",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Inventory data exists\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data).to.be.an(\"Object\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Stock should not be negative\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data.QuantityOnHand).to.be.at.least(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI2LCJlbWFpbCI6ImNhc2hpZXIyNkBsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJDYXNoaWVyIiwiZW1wbG95ZWVOdW1iZXIiOiJFTVAtMDAyNiIsImlhdCI6MTc3NDI1MjE0NiwiZXhwIjoxNzc0MzM4NTQ2fQ.T_JvWIZsf7hIu6FhwCJxyakf6VFvv8bRO3XO-mkwzKo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "  {\r\n    \"productId\": 4,\r\n    \"storeId\": 4,\r\n    \"quantityChange\": 60,\r\n    \"reason\": \"Received stock from supplier\"\r\n  },\r\n\r\n\r\n\r\n"
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/stock/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "stock",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Pricing and Revenue",
+      "item": [
+        {
+          "name": "Correct Details for Standard Customer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time under 2 seconds\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                  "});",
+                  "",
+                  "pm.test(\"Total calculation is correct\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"data\");",
+                  "",
+                  "    const data = jsonData.data;",
+                  "    const items = Array.isArray(data) ? data : [data];",
+                  "",
+                  "    const EPS = 1e-6; // tolerance for floating point rounding",
+                  "",
+                  "    items.forEach((item, index) => {",
+                  "        // Prefer lineTotal if present; otherwise derive from unitPrice * quantity",
+                  "        const lineTotal = (typeof item.lineTotal === \"number\")",
+                  "            ? item.lineTotal",
+                  "            : (pm.expect(item, `Missing lineTotal at index ${index}`).to.have.property(\"unitPrice\"),",
+                  "               pm.expect(item, `Missing quantity at index ${index}`).to.have.property(\"quantity\"),",
+                  "               item.unitPrice * item.quantity);",
+                  "",
+                  "        pm.expect(item, `Missing discountAmount at index ${index}`).to.have.property(\"discountAmount\");",
+                  "        pm.expect(item, `Missing vatAmount at index ${index}`).to.have.property(\"vatAmount\");",
+                  "        pm.expect(item, `Missing total at index ${index}`).to.have.property(\"total\");",
+                  "",
+                  "        const expectedTotal = lineTotal - item.discountAmount + item.vatAmount;",
+                  "        const diff = Math.abs(item.total - expectedTotal);",
+                  "",
+                  "        pm.expect(",
+                  "            diff,",
+                  "            `Total mismatch at index ${index}: expected ${expectedTotal} but got ${item.total} (diff ${diff})`",
+                  "        ).to.be.below(EPS);",
+                  "    });",
+                  "});",
+                  "",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzQyNzE2ODcsImV4cCI6MTc3NDM1ODA4N30.eEbPLDBqrsH1TuCdoWsX4hKdyjjY3_1l-dCPJZQgO_k",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=1&customerId=1&quantity=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "1"
+                },
+                {
+                  "key": "customerId",
+                  "value": "1"
+                },
+                {
+                  "key": "quantity",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Pricing and Discounts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"All PricingRuleIDs are unique\", function(){\r",
+                  "    var data = pm.response.json().data;\r",
+                  "    var ids = data.map(item => item.PricingRuleID);\r",
+                  "    pm.expect(ids.length).to.equal(new Set(ids).size);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"All CustomerTiers are valid\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    const data = jsonData.data;\r",
+                  "    data.forEach((item, index) => {\r",
+                  "        pm.expect(item.CustomerTier, `Invalid CustomerTier at index ${index}`)\r",
+                  "            .to.be.oneOf(['Standard', 'Premium', 'VIP']);\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Each ProductID has unique CustomerTier values\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    const data = jsonData.data;\r",
+                  "\r",
+                  "    // Get unique ProductIDs\r",
+                  "    const productIds = [...new Set(data.map(item => item.ProductID))];\r",
+                  "\r",
+                  "    productIds.forEach((productId) => {\r",
+                  "        const productData = data.filter(item => item.ProductID === productId);\r",
+                  "\r",
+                  "        const tiers = productData.map(item => item.CustomerTier);\r",
+                  "        const uniqueTiers = new Set(tiers);\r",
+                  "\r",
+                  "        pm.expect(\r",
+                  "            uniqueTiers.size,\r",
+                  "            `Duplicate CustomerTier found for ProductID ${productId}`\r",
+                  "        ).to.equal(tiers.length);\r",
+                  "    });\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU0NzgyMDcsImV4cCI6MTc3NTU2NDYwN30.47IL3MKo-SpBFJ5yHWuWBSrglDZy52mDeCavf_o8AR0",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Correct Details for Premium Customer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ".test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Total calculation is correct\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData).to.have.property(\"data\");\r",
+                  "\r",
+                  "    const data = jsonData.data;\r",
+                  "    const items = Array.isArray(data) ? data : [data];\r",
+                  "\r",
+                  "    const EPS = 1e-6; // tolerance for floating point rounding\r",
+                  "\r",
+                  "    items.forEach((item, index) => {\r",
+                  "        // Prefer lineTotal if present; otherwise derive from unitPrice * quantity\r",
+                  "        const lineTotal = (typeof item.lineTotal === \"number\")\r",
+                  "            ? item.lineTotal\r",
+                  "            : (pm.expect(item, `Missing lineTotal at index ${index}`).to.have.property(\"unitPrice\"),\r",
+                  "               pm.expect(item, `Missing quantity at index ${index}`).to.have.property(\"quantity\"),\r",
+                  "               item.unitPrice * item.quantity);\r",
+                  "\r",
+                  "        pm.expect(item, `Missing discountAmount at index ${index}`).to.have.property(\"discountAmount\");\r",
+                  "        pm.expect(item, `Missing vatAmount at index ${index}`).to.have.property(\"vatAmount\");\r",
+                  "        pm.expect(item, `Missing total at index ${index}`).to.have.property(\"total\");\r",
+                  "\r",
+                  "        const expectedTotal = lineTotal - item.discountAmount + item.vatAmount;\r",
+                  "        const diff = Math.abs(item.total - expectedTotal);\r",
+                  "\r",
+                  "        pm.expect(\r",
+                  "            diff,\r",
+                  "            `Total mismatch at index ${index}: expected ${expectedTotal} but got ${item.total} (diff ${diff})`\r",
+                  "        ).to.be.below(EPS);\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzQyNzE2ODcsImV4cCI6MTc3NDM1ODA4N30.eEbPLDBqrsH1TuCdoWsX4hKdyjjY3_1l-dCPJZQgO_k",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=1&customerId=26&quantity=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "1"
+                },
+                {
+                  "key": "customerId",
+                  "value": "26"
+                },
+                {
+                  "key": "quantity",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Customer Details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "let data = pm.response.json().data;\r",
+                  "\r",
+                  "// CustomerID check\r",
+                  "pm.test(\"All CustomerIDs are valid\", function () {\r",
+                  "    data.forEach((item, index) => {\r",
+                  "        pm.expect(item.CustomerID, `Invalid CustomerID at index ${index}`)\r",
+                  "            .to.be.a('number');\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  "// CustomerTier check\r",
+                  "pm.test(\"All CustomerTiers are valid\", function () {\r",
+                  "    data.forEach((item, index) => {\r",
+                  "        pm.expect(item.CustomerTier, `Invalid CustomerTier at index ${index}`)\r",
+                  "            .to.be.oneOf(['Standard', 'Premium', 'VIP']);\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  "// AccountStatus check\r",
+                  "pm.test(\"All Account Statuses are valid\", function () {\r",
+                  "    data.forEach((item, index) => {\r",
+                  "        pm.expect(item.AccountStatus, `Invalid AccountStatus at index ${index}`)\r",
+                  "            .to.be.oneOf(['Active', 'Disabled', 'Suspended']);\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  "// Phone number check\r",
+                  "pm.test(\"All phone numbers are valid\", function () {\r",
+                  "    data.forEach((item, index) => {\r",
+                  "        pm.expect(item.Phone, `Invalid phone at index ${index}`)\r",
+                  "            .to.match(/^\\d{11}$/); // 11 digits (fixing your comment mismatch too)\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"All Emails are in correct format\", function(){\r",
+                  "    data.forEach((item, index) => {\r",
+                  "        pm.expect(item.Email, `Invalid Email at index ${index}`)\r",
+                  "        .to.match(/^[^\\s@]+@[^\\s@]+\\.co\\.za$/);\r",
+                  "    })\r",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzQ0NDU1MzAsImV4cCI6MTc3NDUzMTkzMH0.ifHI-rLmL0mshVcIlpLAMV6UPc1oM_9h_c_81-UFdqQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/customers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "customers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Correct details for VIP Customer",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Total calculation is correct\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData).to.have.property(\"data\");\r",
+                  "\r",
+                  "    const data = jsonData.data;\r",
+                  "    const items = Array.isArray(data) ? data : [data];\r",
+                  "\r",
+                  "    const EPS = 1e-6; // tolerance for floating point rounding\r",
+                  "\r",
+                  "    items.forEach((item, index) => {\r",
+                  "        // Prefer lineTotal if present; otherwise derive from unitPrice * quantity\r",
+                  "        const lineTotal = (typeof item.lineTotal === \"number\")\r",
+                  "            ? item.lineTotal\r",
+                  "            : (pm.expect(item, `Missing lineTotal at index ${index}`).to.have.property(\"unitPrice\"),\r",
+                  "               pm.expect(item, `Missing quantity at index ${index}`).to.have.property(\"quantity\"),\r",
+                  "               item.unitPrice * item.quantity);\r",
+                  "\r",
+                  "        pm.expect(item, `Missing discountAmount at index ${index}`).to.have.property(\"discountAmount\");\r",
+                  "        pm.expect(item, `Missing vatAmount at index ${index}`).to.have.property(\"vatAmount\");\r",
+                  "        pm.expect(item, `Missing total at index ${index}`).to.have.property(\"total\");\r",
+                  "\r",
+                  "        const expectedTotal = lineTotal - item.discountAmount + item.vatAmount;\r",
+                  "        const diff = Math.abs(item.total - expectedTotal);\r",
+                  "\r",
+                  "        pm.expect(\r",
+                  "            diff,\r",
+                  "            `Total mismatch at index ${index}: expected ${expectedTotal} but got ${item.total} (diff ${diff})`\r",
+                  "        ).to.be.below(EPS);\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzQyNzE2ODcsImV4cCI6MTc3NDM1ODA4N30.eEbPLDBqrsH1TuCdoWsX4hKdyjjY3_1l-dCPJZQgO_k",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=1&customerId=45&quantity=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "1"
+                },
+                {
+                  "key": "customerId",
+                  "value": "45"
+                },
+                {
+                  "key": "quantity",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Bulk Quantity",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Total calculation is correct\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData).to.have.property(\"data\");\r",
+                  "\r",
+                  "    const data = jsonData.data;\r",
+                  "    const items = Array.isArray(data) ? data : [data];\r",
+                  "\r",
+                  "    const EPS = 1e-6;\r",
+                  "\r",
+                  "    items.forEach((item, index) => {\r",
+                  "\r",
+                  "        let lineTotal;\r",
+                  "\r",
+                  "        if (typeof item.lineTotal === \"number\") {\r",
+                  "            lineTotal = item.lineTotal;\r",
+                  "        } else {\r",
+                  "            pm.expect(item, `Missing unitPrice at index ${index}`).to.have.property(\"unitPrice\");\r",
+                  "            pm.expect(item, `Missing quantity at index ${index}`).to.have.property(\"quantity\");\r",
+                  "            lineTotal = item.unitPrice * item.quantity;\r",
+                  "        }\r",
+                  "\r",
+                  "        pm.expect(item, `Missing discountAmount at index ${index}`).to.have.property(\"discountAmount\");\r",
+                  "        pm.expect(item, `Missing bulkDiscountAmount at index ${index}`).to.have.property(\"bulkDiscountAmount\");\r",
+                  "        pm.expect(item, `Missing vatAmount at index ${index}`).to.have.property(\"vatAmount\");\r",
+                  "        pm.expect(item, `Missing total at index ${index}`).to.have.property(\"total\");\r",
+                  "\r",
+                  "        const expectedTotal = lineTotal - item.discountAmount - item.bulkDiscountAmount + item.vatAmount;\r",
+                  "        const diff = Math.abs(item.total - expectedTotal);\r",
+                  "\r",
+                  "        pm.expect(\r",
+                  "            diff,\r",
+                  "            `Total mismatch at index ${index}: expected ${expectedTotal} but got ${item.total}`\r",
+                  "        ).to.be.below(EPS);\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzQyNzE2ODcsImV4cCI6MTc3NDM1ODA4N30.eEbPLDBqrsH1TuCdoWsX4hKdyjjY3_1l-dCPJZQgO_k",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=2&customerId=45&quantity=100",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "2"
+                },
+                {
+                  "key": "customerId",
+                  "value": "45"
+                },
+                {
+                  "key": "quantity",
+                  "value": "100"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Zero Quantity",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Total calculation is correct\", function () {\r",
+                  "    const jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData).to.have.property(\"data\");\r",
+                  "\r",
+                  "    const data = jsonData.data;\r",
+                  "    const items = Array.isArray(data) ? data : [data];\r",
+                  "\r",
+                  "    const EPS = 1e-6;\r",
+                  "\r",
+                  "    items.forEach((item, index) => {\r",
+                  "\r",
+                  "        let lineTotal;\r",
+                  "\r",
+                  "        if (typeof item.lineTotal === \"number\") {\r",
+                  "            lineTotal = item.lineTotal;\r",
+                  "        } else {\r",
+                  "            pm.expect(item, `Missing unitPrice at index ${index}`).to.have.property(\"unitPrice\");\r",
+                  "            pm.expect(item, `Missing quantity at index ${index}`).to.have.property(\"quantity\");\r",
+                  "            lineTotal = item.unitPrice * item.quantity;\r",
+                  "        }\r",
+                  "\r",
+                  "        pm.expect(item, `Missing discountAmount at index ${index}`).to.have.property(\"discountAmount\");\r",
+                  "        pm.expect(item, `Missing vatAmount at index ${index}`).to.have.property(\"vatAmount\");\r",
+                  "        pm.expect(item, `Missing total at index ${index}`).to.have.property(\"total\");\r",
+                  "\r",
+                  "        const expectedTotal = lineTotal - item.discountAmount + item.vatAmount;\r",
+                  "        const diff = Math.abs(item.total - expectedTotal);\r",
+                  "\r",
+                  "        pm.expect(\r",
+                  "            diff,\r",
+                  "            `Total mismatch at index ${index}: expected ${expectedTotal} but got ${item.total}`\r",
+                  "        ).to.be.below(EPS);\r",
+                  "    });\r",
+                  "});\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzQzNTgzMzUsImV4cCI6MTc3NDQ0NDczNX0.okuCdv7f7IB2Rh4xDkKNU_P-IEZXdsOLINnDKDGO3GU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=2&customerId=45&quantity=0",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "2"
+                },
+                {
+                  "key": "customerId",
+                  "value": "45"
+                },
+                {
+                  "key": "quantity",
+                  "value": "0"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Negative Quantity",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Negative quantity is not allowed\", function () {\r",
+                  "    const response = pm.response.json();\r",
+                  "    pm.expect(response.data.quantity).to.be.greaterThan(0);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzQzNTgzMzUsImV4cCI6MTc3NDQ0NDczNX0.okuCdv7f7IB2Rh4xDkKNU_P-IEZXdsOLINnDKDGO3GU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=2&customerId=45&quantity=-1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "2"
+                },
+                {
+                  "key": "customerId",
+                  "value": "45"
+                },
+                {
+                  "key": "quantity",
+                  "value": "-1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Non-existent ProductID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Should be error core 404 OR 400\", function(){\r",
+                  "    const response = pm.response.json();\r",
+                  "    pm.expect(response.error).to.match(/Not Found|Bad request/);\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=9999&customerId=45&quantity=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "9999"
+                },
+                {
+                  "key": "customerId",
+                  "value": "45"
+                },
+                {
+                  "key": "quantity",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Missing Parameter ProductID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Request is missing a parameter\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Resonse under 2 seconds\", function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?customerId=45&quantity=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "customerId",
+                  "value": "45"
+                },
+                {
+                  "key": "quantity",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Correct VAT",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Unique VAT Rate IDs\", function () {",
+                  "    const data = pm.response.json().data;",
+                  "    const vatRateIds = data.map(item => item.VATRateID);",
+                  "    const uniqueVatRateIds = [...new Set(vatRateIds)];",
+                  "    pm.expect(uniqueVatRateIds.length).to.equal(vatRateIds.length, \"All VAT Rate IDs should be unique\");",
+                  "});",
+                  "",
+                  "pm.test(\"VAT rates must only be 0, 5, or 15\", function () {",
+                  "    const data = pm.response.json().data;",
+                  "    const allowedRates = [0, 5, 15];",
+                  "",
+                  "    data.forEach((item, index) => {",
+                  "        pm.expect(item.Percentage, `Invalid VAT rate at index ${index}`)",
+                  "            .to.be.oneOf(allowedRates);",
+                  "    });",
+                  "});",
+                  "",
+                  "pm.test(\"VAT categories should only be Reduced, Standard, or Zero-Rated, duplicates flagged\", function () {",
+                  "    const response = pm.response.json().data;",
+                  "    const allowedCategories = [\"Reduced\", \"Standard\", \"Zero-Rated\"];",
+                  "",
+                  "    // 1. Check allowed categories",
+                  "    response.forEach((item, index) => {",
+                  "        pm.expect(allowedCategories, `Invalid VAT category at index ${index}: ${item.Category}`)",
+                  "          .to.include(item.Category);",
+                  "    });",
+                  "",
+                  "    // 2. Count occurrences of each category",
+                  "    const counts = {};",
+                  "    response.forEach(item => {",
+                  "        counts[item.Category] = (counts[item.Category] || 0) + 1;",
+                  "    });",
+                  "",
+                  "    // 3. Find duplicates",
+                  "    const duplicates = Object.entries(counts)",
+                  "        .filter(([category, count]) => count > 1)",
+                  "        .map(([category, count]) => `${category} (${count} times)`);",
+                  "",
+                  "    pm.expect(duplicates.length, `Duplicate VAT categories found: ${duplicates.join(', ')}`).to.eql(0);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/vat-rates",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "vat-rates"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "High value VAT",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response under 2 seconds\", function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"Status code is 200\", function(){\r",
+                  "    pm.expect(pm.response.code).to.eql(200);\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"VAT amount is calculated correctly\", function () {\r",
+                  "    const res = pm.response.json().data;\r",
+                  "\r",
+                  "    pm.expect(res.unitPrice).to.be.a(\"number\");\r",
+                  "    pm.expect(res.discountAmount).to.be.a(\"number\");\r",
+                  "    pm.expect(res.vatAmount).to.be.a(\"number\");\r",
+                  "    pm.expect(res.vatPercentage).to.be.a(\"number\");\r",
+                  "\r",
+                  "    const expectedTotalBeforeVAT = res.unitPrice - res.discountAmount;\r",
+                  "    const expectedVatAmount = expectedTotalBeforeVAT * (res.vatPercentage / 100);\r",
+                  "\r",
+                  "    const round = (num) => Math.round(num * 100) / 100;\r",
+                  "\r",
+                  "    pm.expect(round(res.vatAmount), \"Incorrect VAT amount\")\r",
+                  "        .to.eql(round(expectedVatAmount));\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU0NzgyMDcsImV4cCI6MTc3NTU2NDYwN30.47IL3MKo-SpBFJ5yHWuWBSrglDZy52mDeCavf_o8AR0",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=2&customerId=1&quantity=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "2"
+                },
+                {
+                  "key": "customerId",
+                  "value": "1"
+                },
+                {
+                  "key": "quantity",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Bulk Rounding",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"No floating-point precision errors in monetary values\", function () {\r",
+                  "    const res = pm.response.json().data;\r",
+                  "\r",
+                  "    const fields = [\"discountAmount\", \"vatAmount\", \"total\"];\r",
+                  "\r",
+                  "    fields.forEach(field => {\r",
+                  "        const value = res[field];\r",
+                  "\r",
+                  "        // Convert to string and check decimal length\r",
+                  "        const decimalPart = value.toString().split('.')[1];\r",
+                  "\r",
+                  "        if (decimalPart) {\r",
+                  "            pm.expect(decimalPart.length, `${field} has too many decimal places: ${value}`)\r",
+                  "              .to.be.at.most(2);\r",
+                  "        }\r",
+                  "    });\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1Mzc2NzMsImV4cCI6MTc3NTYyNDA3M30.-FP6OWBL6deE6WamfacrkBSqAzHKRaiX_DfmDhB8wqo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=1&customerId=1&quantity=100",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "1"
+                },
+                {
+                  "key": "customerId",
+                  "value": "1"
+                },
+                {
+                  "key": "quantity",
+                  "value": "100"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "No negative values for valid inputs",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 sceonds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"No negative values in pricing breakdown for valid inputs\", function(){\r",
+                  "    const res = pm.response.json().data;\r",
+                  "\r",
+                  "    pm.expect(res.quantity).to.be.above(0);\r",
+                  "    pm.expect(res.unitPrice).to.be.above(0);\r",
+                  "\r",
+                  "    pm.expect(res.total, \"total is negative\").to.be.at.least(0);\r",
+                  "    pm.expect(res.discountAmount, \"discountAmount is negative\").to.be.at.least(0);\r",
+                  "    pm.expect(res.vatAmount, \"vatAmount is negative\").to.be.at.least(0);\r",
+                  "    pm.expect(res.lineTotal, \"lineTotal is negative\").to.be.at.least(0);\r",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU0NzgyMDcsImV4cCI6MTc3NTU2NDYwN30.47IL3MKo-SpBFJ5yHWuWBSrglDZy52mDeCavf_o8AR0",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=1&customerId=1&quantity=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "1"
+                },
+                {
+                  "key": "customerId",
+                  "value": "1"
+                },
+                {
+                  "key": "quantity",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DiscountAmount always less than lineTotal",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {  \r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"discountAmount is within valid bounds\", function(){\r",
+                  "    const res = pm.response.json().data;\r",
+                  "    pm.expect(res.lineTotal, \"invalid lineTotal\").to.be.at.least(0);\r",
+                  "    pm.expect(res.discountAmount, \"invalid discountAmount\").to.be.at.least(0);\r",
+                  "    pm.expect(res.discountAmount, \"discount exceeds line total\")\r",
+                  "    .to.be.at.most(res.lineTotal);\r",
+                  "    });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU0NzgyMDcsImV4cCI6MTc3NTU2NDYwN30.47IL3MKo-SpBFJ5yHWuWBSrglDZy52mDeCavf_o8AR0",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=4+&customerId=45&quantity=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "4+"
+                },
+                {
+                  "key": "customerId",
+                  "value": "45"
+                },
+                {
+                  "key": "quantity",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Vat amount calculated correctly",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function(){\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"VAT is correctly calculated from discounted price\", function () {\r",
+                  "    const res = pm.response.json().data;\r",
+                  "\r",
+                  "    const taxableAmount = res.lineTotal - res.discountAmount;\r",
+                  "    const expectedVAT = taxableAmount * (res.vatPercentage / 100);\r",
+                  "\r",
+                  "    const round = (num) => Math.round(num * 100) / 100;\r",
+                  "\r",
+                  "    pm.expect(round(res.vatAmount), \"VAT calculation is incorrect\")\r",
+                  "        .to.eql(round(expectedVAT));\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"VAT calculation is consistent and precise\", function () {\r",
+                  "    const res = pm.response.json().data;\r",
+                  "\r",
+                  "    const taxableAmount = res.lineTotal - res.discountAmount;\r",
+                  "    const expectedVAT = taxableAmount * (res.vatPercentage / 100);\r",
+                  "\r",
+                  "    const diff = Math.abs(res.vatAmount - expectedVAT);\r",
+                  "\r",
+                  "    pm.expect(diff, \"VAT precision error too large\")\r",
+                  "        .to.be.below(0.01);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=8+&customerId=1&quantity=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "8+"
+                },
+                {
+                  "key": "customerId",
+                  "value": "1"
+                },
+                {
+                  "key": "quantity",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "correct total calculated single quantity",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code is 200\", function(){\r",
+                  "    pm.expect(pm.response.code).to.equal(200);\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"Repsonse time is less than 2 seconds\", function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"Total is correctly calculated from components\", function () {\r",
+                  "    const res = pm.response.json().data;\r",
+                  "\r",
+                  "    const expectedTotal = res.lineTotal - res.discountAmount + res.vatAmount;\r",
+                  "\r",
+                  "    const round = (num) => Math.round(num * 100) / 100;\r",
+                  "\r",
+                  "    pm.expect(round(res.total), \"Total calculation mismatch\")\r",
+                  "        .to.eql(round(expectedTotal));\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Total calculation is consistent (precision safe)\", function () {\r",
+                  "    const res = pm.response.json().data;\r",
+                  "\r",
+                  "    const expectedTotal = res.lineTotal - res.discountAmount + res.vatAmount;\r",
+                  "\r",
+                  "    const diff = Math.abs(res.total - expectedTotal);\r",
+                  "\r",
+                  "    pm.expect(diff, \"Total calculation precision error\")\r",
+                  "        .to.be.below(0.01);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=8+&customerId=45&quantity=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "8+"
+                },
+                {
+                  "key": "customerId",
+                  "value": "45"
+                },
+                {
+                  "key": "quantity",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "correct total calculated multiple quantity",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code is 200\", function(){\r",
+                  "    pm.response.to.have.status(200)\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time under 2 seconds\", function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000)\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"Bulk discount rule is correctly defined for product pricing\", function () {\r",
+                  "    const res = pm.response.json();\r",
+                  "\r",
+                  "    // This API returns a single object (not .data array)\r",
+                  "    const rule = res;\r",
+                  "\r",
+                  "    pm.expect(rule).to.have.property(\"BulkDiscountPercentage\");\r",
+                  "\r",
+                  "\r",
+                  "    pm.expect(rule.BulkDiscountPercentage, \"Bulk discount must be >= 0\")\r",
+                  "        .to.be.at.least(0);\r",
+                  "\r",
+                  "    pm.expect(rule.BulkDiscountPercentage, \"Bulk discount cannot exceed 100%\")\r",
+                  "        .to.be.below(100);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/calculate?productId=8+&customerId=45&quantity=101",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "calculate"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "8+"
+                },
+                {
+                  "key": "customerId",
+                  "value": "45"
+                },
+                {
+                  "key": "quantity",
+                  "value": "101"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deleting duplicate pricing rule",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"pricing rule successfully deleted\", function(){\r",
+                  "    pm.expect(pm.response.json().message).to.eql(\"Pricing rule deleted\")\r",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Updating a pricing rule",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 sceonds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"DiscountPercentage is updated to 9\", function () {\r",
+                  "    pm.expect(pm.response.json().data.DiscountPercentage).to.equal(9);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"BulkDiscountPercentage is updated to 7\", function () {\r",
+                  "    pm.expect(pm.response.json().data.BulkDiscountPercentage).to.equal(8);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"BulkQuantityThreshold is updated to 99\", function(){\r",
+                  "    pm.expect(pm.response.json().data.BulkQuantityThreshold).to.equal(99);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"discountPercentage\": 9,\r\n  \"bulkQuantityThreshold\": 99,\r\n  \"bulkDiscountPercentage\": 8,\r\n  \"isActive\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/pricing/discounts/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "pricing",
+                "discounts",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Credit & Debt Governance",
+      "item": [
+        {
+          "name": "List all credit accounts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {  \r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU0NzgyMDcsImV4cCI6MTc3NTU2NDYwN30.47IL3MKo-SpBFJ5yHWuWBSrglDZy52mDeCavf_o8AR0",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/credit",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "credit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve specific credit account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {  \r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"Response body contains correct details\", function () {\r",
+                  "\r",
+                  "    const res = pm.response.json().data;\r",
+                  "\r",
+                  "    pm.expect(res).to.have.property(\"CreditAccountID\");\r",
+                  "    pm.expect(res).to.have.property(\"CustomerID\");\r",
+                  "    pm.expect(res).to.have.property(\"CreditLimit\");\r",
+                  "    pm.expect(res).to.have.property(\"CurrentBalance\");\r",
+                  "    pm.expect(res).to.have.property(\"CreditStatus\");\r",
+                  "    pm.expect(res).to.have.property(\"ExpiryDate\");\r",
+                  "    pm.expect(res).to.have.property(\"LastPaymentDate\");\r",
+                  "    pm.expect(res).to.have.property(\"CreatedAt\");\r",
+                  "    pm.expect(res).to.have.property(\"FullName\");\r",
+                  "    pm.expect(res).to.have.property(\"Email\");\r",
+                  "    pm.expect(res).to.have.property(\"CustomerTier\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/v1/credit/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "credit",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Apply for credit",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "\r",
+                  "pm.test(\"Response time is less than 2 sceonds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"Response body contains necessary information\", function(){\r",
+                  "    const res = pm.response.json().data;\r",
+                  "\r",
+                  "    pm.expect(res).to.have.property(\"CreditAccountID\");\r",
+                  "    pm.expect(res).to.have.property(\"CustomerID\");\r",
+                  "    pm.expect(res).to.have.property(\"CreditLimit\");\r",
+                  "    pm.expect(res).to.have.property(\"CurrentBalance\");\r",
+                  "    pm.expect(res).to.have.property(\"CreditStatus\");\r",
+                  "    pm.expect(res).to.have.property(\"ExpiryDate\");\r",
+                  "    pm.expect(res).to.have.property(\"LastPaymentDate\");\r",
+                  "    pm.expect(res).to.have.property(\"CreatedAt\");\r",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 33,\r\n  \"requestedLimit\": 50000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/credit/apply",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "credit",
+                "apply"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Apply with zero limit",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 34,\r\n  \"requestedLimit\": 0\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/credit/apply",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "credit",
+                "apply"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Apply with negative limit",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 35,\r\n  \"requestedLimit\": -10000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/credit/apply",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "credit",
+                "apply"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Expired Credit Acc Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400, should not work as this is a expired CreditAccountID\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 6,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantity\": 2,\r\n  \"reference\": \"ORD-001\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Frozen Credit Acc Order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400, should not work as this is a frozen CreditAccountID\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 22,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantity\": 2,\r\n  \"reference\": \"ORD-0095\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "zero credit limit order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 1,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantity\": 2,\r\n  \"reference\": \"ORD-0096\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Order for customer with suspended account status",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400 as it should not go through\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 18,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantity\": 1,\r\n  \"reference\": \"ORD-0090\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Active account order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 2 seconds\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"All details for the order are provided\", function(){\r",
+                  "    const res = pm.response.json().data;\r",
+                  "\r",
+                  "    pm.expect(res).to.have.property(\"OrderID\");\r",
+                  "    pm.expect(res).to.have.property(\"TotalAmount\");\r",
+                  "})\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 23,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantity\": 1,\r\n  \"reference\": \"ORD-00107\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "negative currentbalance order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "    });\r",
+                  "\r",
+                  "pm.test(\"Response time less than 2 seconds\", function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"All details for the order are provided\", function(){\r",
+                  "    const res = pm.response.json().data;\r",
+                  "\r",
+                  "    pm.expect(res).to.have.property(\"OrderID\");\r",
+                  "    pm.expect(res).to.have.property(\"TotalAmount\");\r",
+                  "})\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 19,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantity\": 1,\r\n  \"reference\": \"ORD-00117\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Pending Account order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status must be 400 bad, as this request should be denied\", function(){\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Resonse time less than 2 seconds\", function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "})"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 33,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantity\": 1,\r\n  \"reference\": \"ORD-00127\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieves all correct orders",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"response code is 200\", function(){\r",
+                  "    pm.response.to.be.status(200)\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"response time is less than 2 seconds\", function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000)\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"Response body contains an array of orders\", function(){\r",
+                  "    pm.expect(pm.response.json().data).to.be.an('array')\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"NO negative or 0 quantities\", function(){\r",
+                  "    pm.expect(pm.response.json().data).to.satisfy(function(data){\r",
+                  "        return data.every(function(order){\r",
+                  "            return order.Quantity > 0\r",
+                  "        })\r",
+                  "    })\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Total is correct\", function(){\r",
+                  "    const data = pm.response.json().data;\r",
+                  "\r",
+                  "    data.forEach(function(item){\r",
+                  "\r",
+                  "        pm.expect(item).to.have.property(\"UnitPrice\");\r",
+                  "        pm.expect(item).to.have.property(\"DiscountAmount\");\r",
+                  "        pm.expect(item).to.have.property(\"VATAmount\");\r",
+                  "\r",
+                  "        pm.expect((item.UnitPrice - item.DiscountAmount)*0.15).to.equal(item.VATAmount);\r",
+                  "        pm.expect(item.UnitPrice - item.DiscountAmount + item.VATAmount).to.equal(item.TotalAmount);\r",
+                  "    })\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieves a single correct order",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"response code is 200\", function(){\r",
+                  "    pm.response.to.be.status(200)\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"response time is less than 2 seconds\", function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000)\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"Order response contains valid data\", function () {\r",
+                  "    const res = pm.response.json().data;\r",
+                  "\r",
+                  "    pm.expect(res.CustomerID).to.be.a(\"number\");\r",
+                  "    pm.expect(res.ProductID).to.be.a(\"number\");\r",
+                  "    pm.expect(res.Quantity).to.be.above(0);\r",
+                  "    pm.expect(res.TotalAmount).to.be.a(\"number\");\r",
+                  "    pm.expect(res.OrderStatus).to.be.a(\"string\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Order response contains all expected properties\", function () {\r",
+                  "    const res = pm.response.json().data;\r",
+                  "\r",
+                  "    pm.expect(res).to.have.property(\"OrderID\");\r",
+                  "    pm.expect(res).to.have.property(\"CustomerID\");\r",
+                  "    pm.expect(res).to.have.property(\"ProductID\");\r",
+                  "    pm.expect(res).to.have.property(\"StoreID\");\r",
+                  "    pm.expect(res).to.have.property(\"Quantity\");\r",
+                  "    pm.expect(res).to.have.property(\"UnitPrice\");\r",
+                  "    pm.expect(res).to.have.property(\"DiscountAmount\");\r",
+                  "    pm.expect(res).to.have.property(\"VATAmount\");\r",
+                  "    pm.expect(res).to.have.property(\"TotalAmount\");\r",
+                  "    pm.expect(res).to.have.property(\"OrderStatus\");\r",
+                  "    pm.expect(res).to.have.property(\"OrderReference\");\r",
+                  "    pm.expect(res).to.have.property(\"CreatedTimestamp\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Total is correct\", function(){\r",
+                  "    const data = pm.response.json().data;\r",
+                  "\r",
+                  "        pm.expect(data).to.have.property(\"UnitPrice\");\r",
+                  "        pm.expect(data).to.have.property(\"DiscountAmount\");\r",
+                  "        pm.expect(data).to.have.property(\"VATAmount\");\r",
+                  "\r",
+                  "        pm.expect((data.UnitPrice - data.DiscountAmount)*0.15).to.equal(data.VATAmount);\r",
+                  "        pm.expect(data.UnitPrice - data.DiscountAmount + data.VATAmount).to.equal(data.TotalAmount);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders/2C18325E-3C2B-443F-9262-C5F9161068EF",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders",
+                "2C18325E-3C2B-443F-9262-C5F9161068EF"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Order blocked with negative quantity",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code is 400 Bad Request\", function(){\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time to be less than 2 seconds\", function(){\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "})\r",
+                  "\r",
+                  "pm.test(\"Total is above 0\", function(){\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.data.TotalAmount).to.be.above(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoia2Fib0BsZXdpc3JldGFpbC5jby56YSIsInJvbGUiOiJBZG1pbiIsImVtcGxveWVlTnVtYmVyIjoiRU1QLTAwMDEiLCJpYXQiOjE3NzU1NDY2MTIsImV4cCI6MTc3NTYzMzAxMn0.91H-iefedp9v41eaIC5mGDIRWWS_eRk03fLnELHFabw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerId\": 6,\r\n  \"productId\": 1,\r\n  \"storeId\": 1,\r\n  \"quantity\": -100,\r\n  \"reference\": \"ORD-129\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/v1/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "v1",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
