@@ -1,0 +1,3 @@
+SELECT *
+FROM Products
+WHERE SKU IS NULL;

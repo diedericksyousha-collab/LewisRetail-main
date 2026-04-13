@@ -1,0 +1,3 @@
+SELECT *
+FROM Customers
+WHERE Phone IS NULL;
