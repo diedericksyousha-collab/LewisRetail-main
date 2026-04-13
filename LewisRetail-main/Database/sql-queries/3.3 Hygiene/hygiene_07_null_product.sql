@@ -1,0 +1,3 @@
+SELECT *
+FROM Orders
+WHERE ProductID IS NULL;

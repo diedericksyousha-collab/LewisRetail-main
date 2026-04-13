@@ -1,0 +1,4 @@
+SELECT SKU, COUNT(*) AS Occurrences
+FROM Products
+GROUP BY SKU
+HAVING COUNT(*) > 1;
